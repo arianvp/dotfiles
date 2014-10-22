@@ -1,3 +1,12 @@
 [submodule "zsh/.oh-my-zsh"]
 	path = zsh/.oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
+[submodule "vim/mixins/vim-pathogen"]
+	path = vim/mixins/vim-pathogen
+	url = https://github.com/tpope/vim-pathogen
+[submodule "vim/mixins/Vundle.vim"]
+	path = vim/mixins/Vundle.vim
+	url = https://github.com/gmarik/Vundle.vim.git
+[submodule "vim/.vim/bundle/Vundle.vim"]
+	path = vim/.vim/bundle/Vundle.vim
+	url = https://github.com/gmarik/Vundle.vim.git
