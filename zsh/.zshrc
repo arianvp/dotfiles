@@ -1,5 +1,10 @@
-source antigen.zsh
+source $HOME/.antigen/antigen.zsh
 
+autoload -U compinit promptinit
+compinit
+promptinit
+setopt completealiases
+setopt promptsubst
 # User configuration
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -29,3 +34,14 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+#
+
+
+antigen use oh-my-zsh
+# Plugins
+
+antigen bundle  git
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+# Theme
+antigen theme bira
