@@ -19,9 +19,13 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'altercation/vim-colors-solarized'
 
 Plugin 'tpope/vim-repeat' " lets me repeat maps
+Plugin 'tpope/vim-surround'
 
 Plugin 'scrooloose/nerdtree'
 
+Plugin 'raichoo/purescript-vim'
+
+Plugin 'digitaltoad/vim-jade'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -87,3 +91,26 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeShowHidden=1
+
+
+
+" this is nice
+nnoremap <C-J> a<CR><Esc>k$
+
+
+set relativenumber 
+set number
+set cursorline
+set cursorcolumn
+set colorcolumn=80
+
+" fuck you.
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>

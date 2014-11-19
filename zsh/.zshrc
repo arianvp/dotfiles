@@ -5,9 +5,14 @@ compinit
 promptinit
 setopt completealiases
 setopt promptsubst
+
+bindkey -v
+
 # User configuration
 
-export PATH=$HOME/.cabal/bin:$HOME/bin:/usr/local/bin:$PATH
+bindkey -v
+export PATH=$HOME/.npm/bin:$HOME/.cabal/bin:$HOME/bin:/usr/local/bin:$PATH
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -40,8 +45,27 @@ export PATH=$HOME/.cabal/bin:$HOME/bin:/usr/local/bin:$PATH
 antigen use oh-my-zsh
 # Plugins
 
-antigen bundle  git
+antigen bundle git
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 # Theme
 antigen theme bira
+
+
+
+
+export EDITOR=vim
+
+
+envfile="$HOME/.gnupg/gpg-agent.env"
+if [[ -e "$envfile" ]] && kill -0 $(grep GPG_AGENT_INFO "$envfile" | cut -d: -f 2) 2>/dev/null; then
+    eval "$(cat "$envfile")"
+else
+    eval "$(gpg-agent --daemon --enable-ssh-support --write-env-file "$envfile")"
+fi
+export GPG_AGENT_INFO  # the env file does not contain the export statement
+export SSH_AUTH_SOCK   # enable gpg-agent for ssh
+
+
+# open tabs in cwd :)
+. /etc/profile.d/vte.sh
