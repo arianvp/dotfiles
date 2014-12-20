@@ -47,6 +47,8 @@ syntax on
 set expandtab
 set shiftwidth=2
 set softtabstop=2
+set tabstop=8                   "A tab is 8 spaces
+set shiftround                  "Round indent to nearest shiftwidth multiple
 
 let mapleader=";"
 
@@ -78,7 +80,7 @@ syntax enable
 if has('gui_running')
   set background=light
   colorscheme solarized
-  set guifont=Inconsolata\ 12
+  set guifont=Source\ Code\ Pro\ 12
 endif
 
 :set guioptions-=m  "remove menu bar
@@ -105,12 +107,12 @@ set cursorcolumn
 set colorcolumn=80
 
 " fuck you.
-noremap <Up> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
+"noremap <Up> <NOP>
+"noremap <Down> <NOP>
+"noremap <Left> <NOP>
+"noremap <Right> <NOP>
 
-imap <up> <nop>
-imap <down> <nop>
-imap <left> <nop>
-imap <right> <nop>
+"imap <up> <nop>
+"imap <down> <nop>
+"imap <left> <nop>
+"imap <right> <nop>
