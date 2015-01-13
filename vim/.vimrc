@@ -1,5 +1,5 @@
 set nocompatible              " be iMproved, required
-filetype off                  " required
+filetype off                  " require
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -22,10 +22,14 @@ Plugin 'tpope/vim-repeat' " lets me repeat maps
 Plugin 'tpope/vim-surround'
 
 Plugin 'scrooloose/nerdtree'
-
+Plugin 'scrooloose/syntastic'
 Plugin 'raichoo/purescript-vim'
 
 Plugin 'digitaltoad/vim-jade'
+
+Plugin 'majutsushi/tagbar'
+
+Plugin 'lukerandall/haskellmode-vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -116,3 +120,56 @@ set colorcolumn=80
 "imap <down> <nop>
 "imap <left> <nop>
 "imap <right> <nop>
+
+"syntastic
+map <silent> <Leader>e :Errors<CR>
+map <Leader>s :SyntasticToggleMode<CR>
+
+" Reload
+map <silent> tu :call GHC_BrowseAll()<CR>
+" Type Lookup
+map <silent> tw :call GHC_ShowType(1)<CR>
+
+nmap <leader>= :TagbarToggle<CR>
+let g:tagbar_autofocus = 1
+
+au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
+au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
+au FileType haskell nnoremap <buffer> <silent> <F3> :HdevtoolsInfo<CR>
+
+
+autocmd BufEnter *.hs set formatprg=pointfree
+au BufEnter *.hs compiler ghc
+
+let g:tagbar_type_haskell = {
+    \ 'ctagsbin'  : 'hasktags',
+    \ 'ctagsargs' : '-x -c -o-',
+    \ 'kinds'     : [
+        \  'm:modules:0:1',
+        \  'd:data: 0:1',
+        \  'd_gadt: data gadt:0:1',
+        \  't:type names:0:1',
+        \  'nt:new types:0:1',
+        \  'c:classes:0:1',
+        \  'cons:constructors:1:1',
+        \  'c_gadt:constructor gadt:1:1',
+        \  'c_a:constructor accessors:1:1',
+        \  'ft:function types:1:1',
+        \  'fi:function implementations:0:1',
+        \  'o:others:0:1'
+    \ ],
+    \ 'sro'        : '.',
+    \ 'kind2scope' : {
+        \ 'm' : 'module',
+        \ 'c' : 'class',
+        \ 'd' : 'data',
+        \ 't' : 'type'
+    \ },
+    \ 'scope2kind' : {
+        \ 'module' : 'm',
+        \ 'class'  : 'c',
+        \ 'data'   : 'd',
+        \ 'type'   : 't'
+    \ }
+\ }
+
