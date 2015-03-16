@@ -28,8 +28,13 @@ Plugin 'raichoo/purescript-vim'
 Plugin 'digitaltoad/vim-jade'
 
 Plugin 'majutsushi/tagbar'
+Plugin 'lambdatoast/elm.vim'
 
-Plugin 'lukerandall/haskellmode-vim'
+Plugin 'elixir-lang/vim-elixir'
+
+
+Plugin 'kien/ctrlp.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -50,9 +55,14 @@ syntax on
 
 set expandtab
 set shiftwidth=2
+set visualbell
 set softtabstop=2
 set tabstop=8                   "A tab is 8 spaces
 set shiftround                  "Round indent to nearest shiftwidth multiple
+set autoindent
+set smartindent
+set ignorecase
+set smartcase
 
 let mapleader=";"
 
@@ -139,7 +149,6 @@ au FileType haskell nnoremap <buffer> <silent> <F3> :HdevtoolsInfo<CR>
 
 
 autocmd BufEnter *.hs set formatprg=pointfree
-au BufEnter *.hs compiler ghc
 
 let g:tagbar_type_haskell = {
     \ 'ctagsbin'  : 'hasktags',
@@ -172,4 +181,8 @@ let g:tagbar_type_haskell = {
         \ 'type'   : 't'
     \ }
 \ }
+
+
+
+set undofile
 
