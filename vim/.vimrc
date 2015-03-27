@@ -186,3 +186,5 @@ let g:tagbar_type_haskell = {
 
 set undofile
 
+" ctrl+p
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
