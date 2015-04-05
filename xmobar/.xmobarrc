@@ -1,0 +1,27 @@
+Config { font = "xft:Source Code Pro:pixelsize=12:antialias=true"
+  , bgColor = "#fdf6e3"
+  , fgColor = "#657b83"
+  , border = NoBorder
+  , borderColor = "black"
+  , hideOnStart = False
+  , persistent = True
+  , position = Top
+  , lowerOnStart = True
+  , commands = [ Run Weather "EHSB" ["-t"," <tempC>C","-L","64","-H","77","--normal","#657b83","--high","#657b83","--low","#657b83"] 36000
+--  , Run Network "enp4s0" ["-L","0","-H","32","--normal","#657b83","--high","#657b83"] 10
+  , Run Cpu ["-L","3","-H","50","--normal","#657b83","--high","#657b83"] 10
+  , Run Memory ["-t","Mem: <usedratio>%"] 10
+  , Run Date "<fc=#93a1a1>%a %b %_d %Y %H:%M</fc>" "date" 10
+  , Run StdinReader
+  , Run BatteryP ["BAT1"]
+              ["-t", "<acstatus> <watts> (<left>%)",
+               "-L", "10", "-H", "80", "-p", "3",
+               "--", "-O", "<fc=green>On</fc> - ", "-i", "",
+               "-L", "-15", "-H", "-5",
+               "-l", "red", "-m", "blue", "-h", "green"]
+              600
+]
+  , sepChar = "%"
+  , alignSep = "}{"
+  , template = " %StdinReader% }{ %cpu% | %memory% | %battery% | Utrecht:%EHSB% | %date% "
+}

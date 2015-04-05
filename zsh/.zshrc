@@ -54,7 +54,7 @@ antigen theme bira
 
 
 
-export EDITOR=vim
+export EDITOR=nvim
 
 
 

@@ -3,21 +3,25 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Util.EZConfig
 import XMonad.Config.Gnome
 import Graphics.X11.ExtraTypes.XF86
+import Solarized
 
 myConfig = defaultConfig { terminal           = "gnome-terminal"
                          , modMask            = mod4Mask
                          , borderWidth        = 1
-                         , normalBorderColor  = "#333333"
-                         , focusedBorderColor = "#d64937"
+                         , normalBorderColor  = solarizedBase0
+                         , focusedBorderColor = solarizedRed
                          } `additionalKeys` myKeys
 
 myKeys = [((noModMask,xF86XK_MonBrightnessUp)  , spawn "xbacklight +10")
          ,((noModMask,xF86XK_MonBrightnessDown), spawn "xbacklight -10")
          ,((mod4Mask.|.shiftMask,xK_o), spawn "passmenu")
+         ,((0,xF86XK_ScreenSaver), spawn "i3lock -f")
+         ,((mod4Mask.|.shiftMask, xK_l), spawn "i3lock -f")
+         ,((mod4Mask,xK_p), spawn "dmenu_run -nb \"#EEE8D5\" -nf \"#657B83\" -fn \"xft:Source Code Pro:pixelsize=12\"")
          ]
 
 myBar = "xmobar"
-myPP  = xmobarPP { ppCurrent = xmobarColor "#ff00ff" "#333333" . wrap "<" ">" }
+myPP  = xmobarPP
 
 main = do
   c <- statusBar myBar myPP toggleStrutsKey myConfig

@@ -35,6 +35,8 @@ Plugin 'elixir-lang/vim-elixir'
 
 Plugin 'kien/ctrlp.vim'
 
+
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -95,6 +97,8 @@ if has('gui_running')
   colorscheme solarized
   set guifont=Source\ Code\ Pro\ 12
 endif
+set background=light
+colorscheme solarized
 
 :set guioptions-=m  "remove menu bar
 :set guioptions-=T  "remove toolbar
@@ -192,3 +196,6 @@ set mouse=a
 
 set backspace=indent,eol,start
 tnoremap <Esc> <C-\><C-n>
+
+
+" colors

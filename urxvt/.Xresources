@@ -1,0 +1,48 @@
+URxvt.allow_bold:           true
+URxvt.font:                 xft:Source Code Pro-10:hinting=True;antialias:True
+URxvt.boldFont:             xft:Source Code Pro for Powerline-10:bold;hinting=True;antialias:True
+
+! Fix font space
+URxvt*letterSpace: -1
+
+! Scrollbar
+URxvt.scrollStyle:          rxvt
+URxvt.scrollBar:            false
+
+
+! Solarized color scheme for the X Window System
+!
+! http://ethanschoonover.com/solarized
+
+
+
+
+! To only apply colors to your terminal, for example, prefix
+! the color assignment statement with its name. Example:
+!
+! URxvt*background:            #fdf6e3
+
+*background:              #fdf6e3
+*foreground:              #eee8d5
+*fading:                  40
+*fadeColor:               #fdf6e3
+*cursorColor:             #586e75
+*pointerColorBackground:  #eee8d5
+*pointerColorForeground:  #586e75
+
+*color0:                  #eee8d5
+*color1:                  #dc322f
+*color2:                  #859900
+*color3:                  #b58900
+*color4:                  #268bd2
+*color5:                  #d33682
+*color6:                  #2aa198
+*color7:                  #073642
+*color8:                  #fdf6e3
+*color9:                  #cb4b16
+*color10:                 #eee8d5
+*color11:                 #eee8d5
+*color12:                 #eee8d5
+*color13:                 #6c71c4
+*color14:                 #586e75
+*color15:                 #002b36
