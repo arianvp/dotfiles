@@ -55,7 +55,6 @@ syntax on
 
 set expandtab
 set shiftwidth=2
-set visualbell
 set softtabstop=2
 set tabstop=8                   "A tab is 8 spaces
 set shiftround                  "Round indent to nearest shiftwidth multiple
@@ -64,22 +63,22 @@ set smartindent
 set ignorecase
 set smartcase
 
-let mapleader=";"
+let mapleader=" "
 
 " FIXME be warned. this might conflict we new plugins
 map <Leader> <Plug>(easymotion-prefix)
 
 nmap s <Plug>(easymotion-s)
 " Gif config
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
+" map  / <Plug>(easymotion-sn)
+" omap / <Plug>(easymotion-tn)
 "
 " These `n` & `N` mappings are options. You do not have to map `n` & `N` to
 "EasyMotion.
 " Without these mappings, `n` & `N` works fine. (These mappings just provide
 " different highlight method and have some other features )
-map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev)
+" map  n <Plug>(easymotion-next)
+" map  N <Plug>(easymotion-prev)
 
 map <Leader>l <Plug>(easymotion-lineforward)
 map <Leader>j <Plug>(easymotion-j)
@@ -133,7 +132,7 @@ set colorcolumn=80
 
 "syntastic
 map <silent> <Leader>e :Errors<CR>
-map <Leader>s :SyntasticToggleMode<CR>
+"map <Leader>s :SyntasticToggleMode<CR>
 
 " Reload
 map <silent> tu :call GHC_BrowseAll()<CR>
@@ -188,3 +187,8 @@ set undofile
 
 " ctrl+p
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+set mouse=a
+
+set backspace=indent,eol,start
+tnoremap <Esc> <C-\><C-n>

@@ -1,0 +1,4 @@
+xmodmap ~/.speedswapper &
+dmenu
+
+
