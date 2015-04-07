@@ -4,12 +4,14 @@ import XMonad.Util.EZConfig
 import XMonad.Config.Gnome
 import Graphics.X11.ExtraTypes.XF86
 import Solarized
+import XMonad.Hooks.SetWMName
 
-myConfig = defaultConfig { terminal           = "gnome-terminal"
+myConfig = defaultConfig { terminal           = "urxvt"
                          , modMask            = mod4Mask
                          , borderWidth        = 1
                          , normalBorderColor  = solarizedBase0
                          , focusedBorderColor = solarizedRed
+                         , startupHook        = setWMName "LG3D"
                          } `additionalKeys` myKeys
 
 myKeys = [((noModMask,xF86XK_MonBrightnessUp)  , spawn "xbacklight +10")
