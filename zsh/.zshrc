@@ -88,3 +88,6 @@ export EDITOR=nvim
 
 
  export GEM_HOME=$HOME/.bundle
+
+ export NODE_ENV=dev
+ export MIX_ENV=dev
