@@ -1,3 +1,9 @@
+
+
+[[ -f ~/.bashrc ]] && . ~/.bashrc
+
+[[ -z $DISPLAY && XDG_VTNR -eq 1 ]] && exec startx
+
 source $HOME/.antigen/antigen.zsh
 
 autoload -U compinit promptinit
@@ -91,3 +97,12 @@ export EDITOR=vim
 
  export NODE_ENV=dev
  export MIX_ENV=dev
+
+
+if [ -z "$GPG_TTY" ]; then
+  gpg-connect-agent /bye
+  SSH_AUTH_SOCK="$HOME/.gnupg/S.gpg-agent.ssh"
+  export SSH_AUTH_SOCK
+  GPG_TTY=$(tty)
+  export GPG_TTY
+fi
