@@ -54,13 +54,13 @@ antigen theme bira
 
 
 
-export EDITOR=nvim
+export EDITOR=vim
 
 
 
 
 # open tabs in cwd :)
-. /etc/profile.d/vte.sh
+# . /etc/profile.d/vte.sh
 
 
  streaming() {

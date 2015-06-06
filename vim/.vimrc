@@ -195,7 +195,7 @@ let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclu
 set mouse=a
 
 set backspace=indent,eol,start
-tnoremap <Esc> <C-\><C-n>
+" tnoremap <Esc> <C-\><C-n>
 
 
 " colors
