@@ -1,6 +1,6 @@
 URxvt.allow_bold:           true
-URxvt.font:                 xft:Source Code Pro-10:hinting=True;antialias:True
-URxvt.boldFont:             xft:Source Code Pro-10:bold;hinting=True;antialias:True
+URxvt.font:                 xft:Source Code Pro-12:hinting=True;antialias:True
+URxvt.boldFont:             xft:Source Code Pro-12:bold;hinting=True;antialias:True
 
 ! Fix font space
 URxvt*letterSpace: -1
