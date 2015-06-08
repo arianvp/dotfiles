@@ -1,26 +1,35 @@
 import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Util.EZConfig
-import XMonad.Config.Gnome
-import Graphics.X11.ExtraTypes.XF86
--- import Solarized
 import XMonad.Hooks.SetWMName
+
+import XMonad.Hooks.Place
+
+import XMonad.Util.Scratchpad
+import Data.Monoid
 
 myConfig = defaultConfig { terminal           = "urxvt"
                          , modMask            = mod4Mask
                          , borderWidth        = 1
                          , startupHook        = setWMName "LG3D"
-                         } `additionalKeys` myKeys
+                         , manageHook         = myPlaceHook <>
+                                manageHook defaultConfig <> myManageHook
+                         } `additionalKeysP` myKeys
 
-myKeys = [((mod4Mask.|.shiftMask,xK_o), spawn "passmenu")
-         ,((0,xF86XK_ScreenSaver), spawn "i3lock -f")
-         ,((mod4Mask.|.shiftMask, xK_l), spawn "i3lock -f")
-         ,((mod4Mask,xK_p), spawn "dmenu_run -nb \"#EEE8D5\" -nf \"#657B83\" -fn \"xft:Source Code Pro:pixelsize=12\"")
-         ]
+myPlaceHook = placeHook $ smart (0.5, 0.5)
+myManageHook = scratchpadManageHookDefault <> (mconcat . concat $
+  [ [ className =? c --> doFloat | c <- myFloats ]])
+
+myFloats = ["arandr", "Arandr"]
+
+
+myKeys = [ ("M-o",  scratchpadSpawnAction myConfig) ]
 
 myBar = "xmobar"
-myPP  = xmobarPP
+myPP = xmobarPP { ppCurrent = xmobarColor "#dc322f" "" . wrap "[" "]"
 
+                }
+main :: IO ()
 main = do
   c <- statusBar myBar myPP toggleStrutsKey myConfig
   xmonad c
