@@ -35,8 +35,22 @@ Plugin 'elixir-lang/vim-elixir'
 
 Plugin 'kien/ctrlp.vim'
 
+Plugin 'mattn/emmet-vim'
+
+Plugin 'pangloss/vim-javascript'
 
 
+Plugin 'klen/python-mode'
+
+Plugin 'godlygeek/tabular'
+
+
+Plugin 'fatih/vim-go'
+
+Plugin 'Shougo/neocomplete.vim'
+
+Plugin 'derekwyatt/vim-scala'
+Plugin 'rust-lang/rust.vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -93,12 +107,12 @@ let g:EasyMotion_use_smartsign_us = 1
 syntax enable
 " solarized
 if has('gui_running')
-  set background=light
+  set background=dark
   colorscheme solarized
-  set guifont=Source\ Code\ Pro\ 12
+  set guifont=Source\ Code\ Pro\ 10
 endif
-set background=light
-colorscheme solarized
+"set background=dark
+"colorscheme solarized
 
 :set guioptions-=m  "remove menu bar
 :set guioptions-=T  "remove toolbar
@@ -117,73 +131,30 @@ let g:NERDTreeShowHidden=1
 nnoremap <C-J> a<CR><Esc>k$
 
 
-set relativenumber 
+"set relativenumber 
 set number
 set cursorline
-set cursorcolumn
-set colorcolumn=80
+"set cursorcolumn
+"set colorcolumn=80
 
-" fuck you.
-"noremap <Up> <NOP>
-"noremap <Down> <NOP>
-"noremap <Left> <NOP>
-"noremap <Right> <NOP>
+" fuck you. Don't use the fucking arrows
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
 
-"imap <up> <nop>
-"imap <down> <nop>
-"imap <left> <nop>
-"imap <right> <nop>
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
 
 "syntastic
 map <silent> <Leader>e :Errors<CR>
 "map <Leader>s :SyntasticToggleMode<CR>
 
-" Reload
-map <silent> tu :call GHC_BrowseAll()<CR>
-" Type Lookup
-map <silent> tw :call GHC_ShowType(1)<CR>
-
 nmap <leader>= :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 
-au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
-au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
-au FileType haskell nnoremap <buffer> <silent> <F3> :HdevtoolsInfo<CR>
-
-
-autocmd BufEnter *.hs set formatprg=pointfree
-
-let g:tagbar_type_haskell = {
-    \ 'ctagsbin'  : 'hasktags',
-    \ 'ctagsargs' : '-x -c -o-',
-    \ 'kinds'     : [
-        \  'm:modules:0:1',
-        \  'd:data: 0:1',
-        \  'd_gadt: data gadt:0:1',
-        \  't:type names:0:1',
-        \  'nt:new types:0:1',
-        \  'c:classes:0:1',
-        \  'cons:constructors:1:1',
-        \  'c_gadt:constructor gadt:1:1',
-        \  'c_a:constructor accessors:1:1',
-        \  'ft:function types:1:1',
-        \  'fi:function implementations:0:1',
-        \  'o:others:0:1'
-    \ ],
-    \ 'sro'        : '.',
-    \ 'kind2scope' : {
-        \ 'm' : 'module',
-        \ 'c' : 'class',
-        \ 'd' : 'data',
-        \ 't' : 'type'
-    \ },
-    \ 'scope2kind' : {
-        \ 'module' : 'm',
-        \ 'class'  : 'c',
-        \ 'data'   : 'd',
-        \ 'type'   : 't'
-    \ }
-\ }
 
 
 
@@ -198,4 +169,15 @@ set backspace=indent,eol,start
 " tnoremap <Esc> <C-\><C-n>
 
 
-" colors
+
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+
+filetype on
+filetype plugin on
+filetype indent on " file type based indentation
+
+au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
